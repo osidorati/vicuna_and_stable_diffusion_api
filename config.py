@@ -9,8 +9,8 @@ class Config:
         self.model_vicuna = os.getenv("MODEL_VICUNA", "helloollel/vicuna-7b")
         self.num_gpus = os.getenv("NUM_GPUS", 1)
         self.load_8bit = True if os.getenv("LOAD_8BIT") else False
-        self.max_new_tokens = os.getenv("MAX_NEW_TOKENS")
-        self.temperature = os.getenv("TEMPERATURE")
+        self.max_new_tokens = os.getenv("MAX_NEW_TOKENS", 512)
+        self.temperature = os.getenv("TEMPERATURE", 1.0)
 
         self.model_sd = os.getenv('MODEL_SD', 'stablediffusionapi/deliberate-v2')
         self.low_vram_mode = True if os.getenv('LOW_VRAM') else False
