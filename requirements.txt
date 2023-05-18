@@ -1,0 +1,10 @@
+demoji
+torch
+uuid
+fastapi
+diffusers
+transformers
+python-dotenv
+huggingface_hub
+uvicorn
+accelerate
