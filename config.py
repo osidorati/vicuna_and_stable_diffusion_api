@@ -5,9 +5,9 @@ load_dotenv('.env')
 
 class Config:
     def __init__(self) -> None:
-        self.device = os.getenv("DEVICE")
-        self.model_path = os.getenv("MODEL_PATH")
-        self.num_gpus = os.getenv("NUM_GPUS")
+        self.device = os.getenv("DEVICE", "cuda")
+        self.model_path = os.getenv("MODEL_PATH", "helloollel/vicuna-7b")
+        self.num_gpus = os.getenv("NUM_GPUS", 1)
         self.load_8bit = True if os.getenv("LOAD_8BIT") else False
         self.max_new_tokens = os.getenv("MAX_NEW_TOKENS")
         self.temperature = os.getenv("TEMPERATURE")
