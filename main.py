@@ -53,10 +53,10 @@ app = FastAPI()
 
 conv_template = 'vicuna_v1.1'
 
-model, tokenizer = load_model(config.model_path, config.device,
+model, tokenizer = load_model(config.model_vicuna, config.device,
                               config.num_gpus, config.load_8bit)
 
-pipe = StableDiffusionPipeline.from_pretrained(config.model_data, torch_dtype=torch_dtype, revision=None)
+pipe = StableDiffusionPipeline.from_pretrained(config.model_sd, torch_dtype=torch_dtype, revision=None)
 pipe = pipe.to("cuda")
 
 
@@ -87,7 +87,7 @@ def predict(text_request: TextRequest):
     conv.append_message(conv.roles[1], None)
     prompt = conv.get_prompt()
     params = {
-        "model": config.model_path,
+        "model": config.model_vicuna,
         "prompt": prompt,
         "temperature": config.temperature,
         "max_new_tokens": config.max_new_tokens,
