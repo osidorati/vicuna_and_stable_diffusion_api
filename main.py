@@ -11,7 +11,7 @@ import uuid
 from fastapi import FastAPI
 from pydantic import BaseModel
 from typing import List
-from fastapi.responses import FileResponsea
+from fastapi.responses import FileResponse
 
 from config import Config
 
